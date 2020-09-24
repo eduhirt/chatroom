@@ -24,7 +24,7 @@ export const handleSocketConnections = (io) => {
 
       const roomData = io.sockets.adapter.rooms[room];
       const shouldStartCountdown =
-        roomData.length === 2 && !timersRunning[String(room)];
+        roomData.length >= 2 && !timersRunning[String(room)];
 
       if (shouldStartCountdown) {
         actions.startCountdown({
